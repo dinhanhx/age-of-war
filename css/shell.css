@@ -1,0 +1,22 @@
+:root { --z: 1; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+body { font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif; color: #fff; }
+#app { display: flex; flex-direction: column; height: 100%; background: #000; }
+#bar { flex: none; display: flex; align-items: center; gap: 6px; height: 36px; padding: 0 10px; background: #1b2a38; border-bottom: 1px solid #0b141c; font-size: 14px; }
+#bar .title { font-weight: 700; letter-spacing: .04em; color: #ffd84a; }
+#bar .grow { flex: 1; }
+#bar button { min-width: 30px; height: 26px; padding: 0 8px; font: inherit; color: #fff; background: #2f465b; border: 1px solid #0b141c; border-radius: 4px; cursor: pointer; }
+#bar button:hover, #bar button:focus-visible { background: #3d5b77; outline: none; }
+#bar button:disabled { opacity: .4; cursor: default; }
+#bar output { min-width: 48px; text-align: center; }
+#bar [hidden] { display: none; }
+/* flex + margin:auto centers a small game and still lets a big one scroll from its top-left corner */
+#stage { flex: 1; min-height: 0; display: flex; overflow: auto; background: #000; }
+#game { flex: none; margin: auto; border: 0; background: #3cb0ff; width: calc(var(--z) * 100%); height: calc(var(--z) * 100%); }
+/* touch devices: no toolbar, game fills the screen (in-game buttons handle fullscreen and scrolling) */
+@media (pointer: coarse) {
+  #bar { display: none; }
+  #stage { overflow: hidden; }
+  #game { width: 100%; height: 100%; }
+}

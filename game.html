@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#3cb0ff">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Age of War</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="stage">
+  <div id="frame">
+    <canvas id="game" aria-label="Age of War battlefield"></canvas>
+    <div id="hud" hidden></div>
+    <div id="scroll-btns" hidden>
+      <button type="button" id="scroll-left" aria-label="Scroll battlefield left">◀</button>
+      <button type="button" id="scroll-right" aria-label="Scroll battlefield right">▶</button>
+    </div>
+
+    <div class="screen" id="scr-loading"><div class="box"><h2>Loading…</h2><div class="bar"><i id="load-bar"></i></div></div></div>
+
+    <div class="screen" id="scr-title" hidden>
+      <h1>AGE OF WAR</h1>
+      <div class="box menu">
+        <button class="mbtn" data-act="play">Play</button>
+        <button class="mbtn" data-act="help">Instructions</button>
+        <p class="credit">Web recreation of the Flash game by louissi</p>
+      </div>
+    </div>
+
+    <div class="screen" id="scr-diff" hidden>
+      <h1>Difficulty</h1>
+      <div class="box menu">
+        <p>Choose a difficulty to start the game:</p>
+        <button class="mbtn" data-act="start" data-diff="1">Normal</button>
+        <button class="mbtn" data-act="start" data-diff="2">Harder</button>
+        <button class="mbtn" data-act="start" data-diff="3">Impossible</button>
+        <button class="mbtn small" data-act="title">Back</button>
+      </div>
+    </div>
+
+    <div class="screen" id="scr-help" hidden>
+      <div class="box wide">
+        <h2>Instructions</h2>
+        <p>The goal of the game is to survive and destroy the enemy base.</p>
+        <p>The game is divided in 5 ages. To move to the next age you need XP. You gain XP by killing enemy units, and also (less) when one of your units is killed. You can also build defences. Finding the balance between defence and offence is the key.</p>
+        <p>You have a special attack with its own cooldown; each age has a different one. You cannot repair your base, but it gains health every time you evolve. Protect your base at all cost!</p>
+        <ul class="keys">
+          <li><b>Mouse</b>: click the menu buttons. Move to the screen edges to scroll. The ◻ / ▭ button switches between the classic 2000s view and a wide view.</li>
+          <li><b>Touch</b>: tap buttons, drag the battlefield or hold ◀ ▶ to scroll.</li>
+          <li><b>Keys</b>: Space pause · Esc cancel · ← → scroll · 1–5 menu buttons</li>
+        </ul>
+        <button class="mbtn small" data-act="back">Back</button>
+      </div>
+    </div>
+
+    <div class="screen" id="scr-pause" hidden>
+      <div class="box"><h2>PAUSED</h2><p>Press space again or tap to resume</p>
+        <button class="mbtn" data-act="resume">Resume</button>
+        <button class="mbtn small" data-act="quit">Quit to menu</button>
+      </div>
+    </div>
+
+    <div class="screen" id="scr-end" hidden>
+      <h1 id="end-title">Victory!</h1>
+      <div class="box menu">
+        <p id="end-text"></p>
+        <button class="mbtn" data-act="play">Play again</button>
+        <button class="mbtn small" data-act="title">Menu</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="rotate" role="alert">
+  <div class="phone"></div>
+  <p>Please rotate your device</p>
+  <span>Age of War plays in landscape</span>
+</div>
+
+<noscript><p style="color:#fff;padding:1em">Age of War needs JavaScript.</p></noscript>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
